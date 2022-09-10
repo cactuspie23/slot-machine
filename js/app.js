@@ -1,29 +1,32 @@
 /*-------------------------------- Constants --------------------------------*/
-
 const icons = ['☠️', '🧟', '🕸️', '🦇', '👻', '🧛', '🎃', '🪓', '🩸', '⚰️', '🪦', '💰']
 
 /*---------------------------- Variables (state) ----------------------------*/
-
-let slot1, slot2, slot3, bets, credits
+let winner, jackpot
 
 /*------------------------ Cached Element References ------------------------*/
-
-
+const messageEl = document.getElementById('message')
+const slots = document.querySelectorAll('.slots')
+const betBtn = document.querySelectorAll('.place-bet')
+const startBtn = document.getElementById('start-button')
+const resetBtn = document.getElementById('reset-button')
+const bet = document.getElementById('current-bet')
+const credits = document.getElementById('credits')
 
 /*----------------------------- Event Listeners -----------------------------*/
-
-
+startBtn.addEventListener('click', playGame)
+betBtn.addEventListener('click', placeBet)
 
 /*-------------------------------- Functions --------------------------------*/
+init()
+
+function init() {
+
+}
 
 
 
 
-//  pseudo-code
-
-// - add HTML for game board (div’s and buttons)
-// - define variables for img, current-bet, 
-// - create icon array
 // - store cached elements for message, buttons, img
 // - create function to initialize the game
 // - create render function
