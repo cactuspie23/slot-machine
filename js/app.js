@@ -24,7 +24,10 @@ resetBtn.addEventListener('click', reset)
 init()
 
 function init() {
-
+  winner = null
+  messageEl.textContent = 'Place your bet to start the game!'
+  resetBtn.setAttribute('hidden', true)
+  render()
 }
 
 function render() {
