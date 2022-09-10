@@ -15,7 +15,10 @@ const credits = document.getElementById('credits')
 
 /*----------------------------- Event Listeners -----------------------------*/
 startBtn.addEventListener('click', playGame)
-betBtn.addEventListener('click', placeBet)
+betBtn.forEach(btn => {
+  btn.addEventListener('click', placeBet)
+})
+resetBtn.addEventListener('click', reset)
 
 /*-------------------------------- Functions --------------------------------*/
 init()
@@ -24,8 +27,25 @@ function init() {
 
 }
 
+function render() {
 
+}
 
+function placeBet() {
+
+}
+
+function playGame() {
+
+}
+
+function randomize() {
+
+}
+
+function reset() {
+
+}
 
 // - store cached elements for message, buttons, img
 // - create function to initialize the game
