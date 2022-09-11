@@ -6,6 +6,7 @@ let bet, credit, jackpot
 
 /*------------------------ Cached Element References ------------------------*/
 const messageEl = document.getElementById('message')
+const jackpotEl = document.getElementById('jackpot')
 const slots = document.querySelectorAll('.slots')
 const betBtn = document.querySelectorAll('.place-bet')
 const startBtn = document.getElementById('start-button')
@@ -27,6 +28,7 @@ function init() {
   bet = 0
   credit = 300
   jackpot = 100
+  jackpotEl.textContent = `Jackpot : $${jackpot}`
   messageEl.textContent = 'Place your bet to start the game!'
   currentBet.textContent = `Current Bet : $${bet}`
   credits.textContent = `Credits : $${credit}`
@@ -40,15 +42,15 @@ function render() {
 function placeBet(evt) {
   if (evt.target.id === 'one') {
     bet = 1
-    currentBet.textContent = 'Current Bet : $1'
   } else if (evt.target.id === 'five') {
     bet = 5
-    currentBet.textContent = 'Current Bet : $5'
   } else {
     bet = 10
-    currentBet.textContent = 'Current Bet : $10'
   } 
+  credit -= bet
   messageEl.textContent = 'Push Start to play!'
+  currentBet.textContent = `Current Bet : $${bet}`
+  credits.textContent = `Credits : $${credit}`
 }
 
 function playGame() {
