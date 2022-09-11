@@ -38,6 +38,7 @@ function render() {
   jackpotEl.textContent = `Jackpot : $${jackpot}`
   currentBet.textContent = `Current Bet : $${bet}`
   credits.textContent = `Credits : $${credit}`
+  betBtn.forEach(btn => btn.disabled = false)
 }
 
 function placeBet(evt) {
@@ -49,7 +50,7 @@ function placeBet(evt) {
     bet = 10
   } 
   credit -= bet
-  betBtn.disabled = true
+  betBtn.forEach(btn => btn.disabled = true)
   messageEl.textContent = 'Push Start to play!'
   currentBet.textContent = `Current Bet : $${bet}`
   credits.textContent = `Credits : $${credit}`
@@ -61,15 +62,14 @@ function playGame() {
   const img1 = document.getElementById('img1').textContent
   const img2 = document.getElementById('img2').textContent
   const img3 = document.getElementById('img3').textContent
-  if (img1 === img2 && img1 === img3) {
+  if (img1 === icons[6] && img2 === icons[6] && img3 === icons[6]) {
+    credit += jackpot
+  } else if (img1 === img2 && img1 === img3) {
     credit += bet*4
-    credits.textContent = `Credits : $${credit}`
   } else if (img1 === img2 || img1 === img3 || img2 === img3) {
     credit += bet*3
-    credits.textContent = `Credits : $${credit}`
   } else {
     jackpot += bet
-    jackpotEl.textContent = `Jackpot : $${jackpot}`
   }
   render()
 }
@@ -88,5 +88,4 @@ function randomize() {
 // - if player wins first tier, player gets 2X the bet
 // - if player wins second tier, player gets 3X
 // - animation for icon display at different intervals
-// - create game reset
 // - sounds/animation for jackpot
