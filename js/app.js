@@ -1,8 +1,8 @@
 /*-------------------------------- Constants --------------------------------*/
-const icons = ['☠️', '🧟', '🕸️', '🦇', '👻', '🧛', '🎃', '🪓', '🩸', '⚰️', '🪦', '💰']
+const icons = ['☠️', '🧟', '🕸️', '🎃', '🦇', '👻', '🧛', '🪓', '🩸', '⚰️', '🪦', '💰']
 
 /*---------------------------- Variables (state) ----------------------------*/
-let jackpot
+let bet, jackpot
 
 /*------------------------ Cached Element References ------------------------*/
 const messageEl = document.getElementById('message')
@@ -10,7 +10,7 @@ const slots = document.querySelectorAll('.slots')
 const betBtn = document.querySelectorAll('.place-bet')
 const startBtn = document.getElementById('start-button')
 const resetBtn = document.getElementById('reset-button')
-const bet = document.getElementById('current-bet')
+const currentBet = document.getElementById('current-bet')
 const credits = document.getElementById('credits')
 
 /*----------------------------- Event Listeners -----------------------------*/
@@ -34,8 +34,17 @@ function render() {
 
 }
 
-function placeBet() {
-  
+function placeBet(evt) {
+  if (evt.target.id === 'one') {
+    bet = 1
+    currentBet.textContent = 'Current Bet : $1'
+  } else if (evt.target.id === 'five') {
+    bet = 5
+    currentBet.textContent = 'Current Bet : $5'
+  } else {
+    bet = 10
+    currentBet.textContent = 'Current Bet : $10'
+  } 
 }
 
 function playGame() {
