@@ -16,9 +16,7 @@ const credits = document.getElementById('credits')
 
 /*----------------------------- Event Listeners -----------------------------*/
 startBtn.addEventListener('click', playGame)
-betBtn.forEach(btn => {
-  btn.addEventListener('click', placeBet)
-})
+betBtn.forEach(btn => btn.addEventListener('click', placeBet))
 resetBtn.addEventListener('click', init)
 
 /*-------------------------------- Functions --------------------------------*/
@@ -64,12 +62,16 @@ function playGame() {
   const img3 = document.getElementById('img3').textContent
   if (img1 === icons[6] && img2 === icons[6] && img3 === icons[6]) {
     credit += jackpot
+    messageEl.textContent = 'You win Jackpot!'
   } else if (img1 === img2 && img1 === img3) {
     credit += bet*4
+    messageEl.textContent = 'You win 4x!!'
   } else if (img1 === img2 || img1 === img3 || img2 === img3) {
     credit += bet*3
+    messageEl.textContent = 'You win 3x!!'
   } else {
     jackpot += bet
+    messageEl.textContent = 'Try again! Place your bet'
   }
   render()
 }
