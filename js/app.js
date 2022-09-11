@@ -37,6 +37,7 @@ function render() {
   currentBet.textContent = `Current Bet : $${bet}`
   credits.textContent = `Credits : $${credit}`
   betBtn.forEach(btn => btn.disabled = false)
+  startBtn.disabled = true
 }
 
 function placeBet(evt) {
@@ -49,6 +50,7 @@ function placeBet(evt) {
   } 
   credit -= bet
   betBtn.forEach(btn => btn.disabled = true)
+  startBtn.disabled = false
   messageEl.textContent = 'Push Start to play!'
   currentBet.textContent = `Current Bet : $${bet}`
   credits.textContent = `Credits : $${credit}`
