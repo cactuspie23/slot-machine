@@ -36,7 +36,8 @@ function init() {
 }
 
 function render() {
-
+  bet = 0
+  currentBet.textContent = `Current Bet : $${bet}`
 }
 
 function placeBet(evt) {
@@ -63,9 +64,13 @@ function playGame() {
     credit += jackpot
     credits.textContent = `Credits : $${credit}`
   } else if (img1 === img2 || img1 === img3 || img2 === img3) {
-    credit += bet*2
+    credit += bet*3
     credits.textContent = `Credits : $${credit}`
-  } 
+  } else {
+    jackpot += bet
+    jackpotEl.textContent = `Jackpot : $${jackpot}`
+  }
+  render()
 }
 
 function randomize() {
