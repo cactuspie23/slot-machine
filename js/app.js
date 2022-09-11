@@ -1,5 +1,5 @@
 /*-------------------------------- Constants --------------------------------*/
-const icons = ['☠️', '🧟', '🕸️', '🎃', '🦇', '👻', '🧛', '🪓', '🩸', '⚰️', '🪦', '💰']
+const icons = ['☠️', '🧟', '🕸️', '🎃', '🦇',]
 
 /*---------------------------- Variables (state) ----------------------------*/
 let bet, jackpot
@@ -18,12 +18,13 @@ startBtn.addEventListener('click', playGame)
 betBtn.forEach(btn => {
   btn.addEventListener('click', placeBet)
 })
-resetBtn.addEventListener('click', reset)
+resetBtn.addEventListener('click', init)
 
 /*-------------------------------- Functions --------------------------------*/
 init()
 
 function init() {
+  bet = 0
   jackpot = 0
   messageEl.textContent = 'Place your bet to start the game!'
   resetBtn.setAttribute('hidden', true)
@@ -48,24 +49,26 @@ function placeBet(evt) {
 }
 
 function playGame() {
+  resetBtn.removeAttribute('hidden')
   randomize()
+  const img1 = document.getElementById('img1').textContent
+  const img2 = document.getElementById('img2').textContent
+  const img3 = document.getElementById('img3').textContent
+  if (img1 === img2 && img1 === img3) {
+    console.log('Winner!')
+  }
 }
 
 function randomize() {
   let randomImg
   slots.forEach(slot => {
-    randomImg = Math.floor(Math.random()*12)
+    randomImg = Math.floor(Math.random()*5)
     slot.textContent = icons[randomImg]
   })
 }
 
-function reset() {
-
-}
-
 
 // - create render function
-// - click events for betting
 // - create function to place bet
 // - create function to play the game
 // - create function to determine winner/payout
