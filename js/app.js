@@ -2,7 +2,7 @@
 const icons = ['☠️', '🧟', '🕸️', '🦇', '👻', '🧛', '🎃', '🪓', '🩸', '⚰️', '🪦', '💰']
 
 /*---------------------------- Variables (state) ----------------------------*/
-let winner, jackpot
+let jackpot
 
 /*------------------------ Cached Element References ------------------------*/
 const messageEl = document.getElementById('message')
@@ -24,7 +24,7 @@ resetBtn.addEventListener('click', reset)
 init()
 
 function init() {
-  winner = null
+  jackpot = 0
   messageEl.textContent = 'Place your bet to start the game!'
   resetBtn.setAttribute('hidden', true)
   render()
@@ -35,7 +35,7 @@ function render() {
 }
 
 function placeBet() {
-
+  
 }
 
 function playGame() {
@@ -54,14 +54,15 @@ function reset() {
 
 }
 
-// - store cached elements for message, buttons, img
-// - create function to initialize the game
+
 // - create render function
 // - click events for betting
 // - create function to place bet
-// - create function to randomize the icon array
 // - create function to play the game
 // - create function to determine winner/payout
+// - if player doesn't win, bet gets added to jackpot
+// - if player wins first tier, player gets 2X the bet
+// - if player wins second tier, player gets 3X
 // - animation for icon display at different intervals
 // - create game reset
 // - sounds/animation for jackpot
