@@ -30,6 +30,8 @@ section.container {
   width: 140px;
   height: 200px;
   margin: 16px;
+  font-size: 60px;
+  
 }
 
 button {

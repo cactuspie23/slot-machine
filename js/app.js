@@ -39,11 +39,15 @@ function placeBet() {
 }
 
 function playGame() {
-
+  randomize()
 }
 
 function randomize() {
-
+  let randomImg
+  slots.forEach(slot => {
+    randomImg = Math.floor(Math.random()*12)
+    slot.textContent = icons[randomImg]
+  })
 }
 
 function reset() {
