@@ -1,8 +1,8 @@
 /*-------------------------------- Constants --------------------------------*/
-const icons = ['☠️', '🧟', '🕸️', '🎃', '🦇',]
+const icons = ['☠️', '🕸️', '🎃', '🦇', '👻', '🧛', '🪓', '🩸', '⚰️', '🪦', '💰']
 
 /*---------------------------- Variables (state) ----------------------------*/
-let bet, jackpot
+let bet, credit, jackpot
 
 /*------------------------ Cached Element References ------------------------*/
 const messageEl = document.getElementById('message')
@@ -25,10 +25,12 @@ init()
 
 function init() {
   bet = 0
+  credit = 500
   jackpot = 0
   messageEl.textContent = 'Place your bet to start the game!'
+  currentBet.textContent = 'Current Bet : $0'
+  credits.textContent = 'Credits : $500'
   resetBtn.setAttribute('hidden', true)
-  render()
 }
 
 function render() {
@@ -46,6 +48,7 @@ function placeBet(evt) {
     bet = 10
     currentBet.textContent = 'Current Bet : $10'
   } 
+  messageEl.textContent = 'Push Start to play!'
 }
 
 function playGame() {
@@ -62,7 +65,7 @@ function playGame() {
 function randomize() {
   let randomImg
   slots.forEach(slot => {
-    randomImg = Math.floor(Math.random()*5)
+    randomImg = Math.floor(Math.random()*11)
     slot.textContent = icons[randomImg]
   })
 }
