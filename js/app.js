@@ -1,5 +1,5 @@
 /*-------------------------------- Constants --------------------------------*/
-const icons = ['☠️', '🕸️', '🎃', '🦇', '👻', '🧛', '🪓', '🩸', '⚰️', '🪦', '💰']
+const icons = ['☠️', '🕸️', '🎃', '🦇', '👻', '🪓', '💰']
 
 /*---------------------------- Variables (state) ----------------------------*/
 let bet, credit, jackpot
@@ -25,11 +25,11 @@ init()
 
 function init() {
   bet = 0
-  credit = 500
-  jackpot = 0
+  credit = 300
+  jackpot = 100
   messageEl.textContent = 'Place your bet to start the game!'
-  currentBet.textContent = 'Current Bet : $0'
-  credits.textContent = 'Credits : $500'
+  currentBet.textContent = `Current Bet : $${bet}`
+  credits.textContent = `Credits : $${credit}`
   resetBtn.setAttribute('hidden', true)
 }
 
@@ -58,14 +58,18 @@ function playGame() {
   const img2 = document.getElementById('img2').textContent
   const img3 = document.getElementById('img3').textContent
   if (img1 === img2 && img1 === img3) {
-    console.log('Winner!')
-  }
+    credit += jackpot
+    credits.textContent = `Credits : $${credit}`
+  } else if (img1 === img2 || img1 === img3 || img2 === img3) {
+    credit += bet*2
+    credits.textContent = `Credits : $${credit}`
+  } 
 }
 
 function randomize() {
   let randomImg
   slots.forEach(slot => {
-    randomImg = Math.floor(Math.random()*11)
+    randomImg = Math.floor(Math.random()*7)
     slot.textContent = icons[randomImg]
   })
 }
