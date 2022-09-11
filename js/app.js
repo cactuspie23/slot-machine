@@ -28,16 +28,16 @@ function init() {
   bet = 0
   credit = 300
   jackpot = 100
-  jackpotEl.textContent = `Jackpot : $${jackpot}`
   messageEl.textContent = 'Place your bet to start the game!'
-  currentBet.textContent = `Current Bet : $${bet}`
-  credits.textContent = `Credits : $${credit}`
   resetBtn.setAttribute('hidden', true)
+  render()
 }
 
 function render() {
   bet = 0
+  jackpotEl.textContent = `Jackpot : $${jackpot}`
   currentBet.textContent = `Current Bet : $${bet}`
+  credits.textContent = `Credits : $${credit}`
 }
 
 function placeBet(evt) {
@@ -49,6 +49,7 @@ function placeBet(evt) {
     bet = 10
   } 
   credit -= bet
+  betBtn.disabled = true
   messageEl.textContent = 'Push Start to play!'
   currentBet.textContent = `Current Bet : $${bet}`
   credits.textContent = `Credits : $${credit}`
@@ -61,7 +62,7 @@ function playGame() {
   const img2 = document.getElementById('img2').textContent
   const img3 = document.getElementById('img3').textContent
   if (img1 === img2 && img1 === img3) {
-    credit += jackpot
+    credit += bet*4
     credits.textContent = `Credits : $${credit}`
   } else if (img1 === img2 || img1 === img3 || img2 === img3) {
     credit += bet*3
@@ -82,9 +83,6 @@ function randomize() {
 }
 
 
-// - create render function
-// - create function to place bet
-// - create function to play the game
 // - create function to determine winner/payout
 // - if player doesn't win, bet gets added to jackpot
 // - if player wins first tier, player gets 2X the bet
