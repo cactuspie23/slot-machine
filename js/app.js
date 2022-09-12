@@ -1,5 +1,5 @@
 /*-------------------------------- Constants --------------------------------*/
-const icons = ['☠️', '🕸️', '🎃', '🦇', '👻', '🪓', '💰']
+const icons = ['☠️', '🕸️', '🎃', '🦇', '💰']
 
 /*---------------------------- Variables (state) ----------------------------*/
 let bet, credit, jackpot
@@ -24,10 +24,11 @@ init()
 
 function init() {
   bet = 0
-  credit = 300
+  credit = 200
   jackpot = 100
   messageEl.textContent = 'Place your bet to start the game!'
   resetBtn.setAttribute('hidden', true)
+  slots.forEach(slot => slot.textContent = icons[4]) 
   render()
 }
 
@@ -66,8 +67,9 @@ function playGame() {
   const img1 = document.getElementById('img1').textContent
   const img2 = document.getElementById('img2').textContent
   const img3 = document.getElementById('img3').textContent
-  if (img1 === icons[6] && img2 === icons[6] && img3 === icons[6]) {
+  if (img1 === icons[4] && img2 === icons[4] && img3 === icons[4]) {
     credit += jackpot
+    jackpot = 100
     messageEl.textContent = 'You win Jackpot!'
   } else if (img1 === img2 && img1 === img3) {
     credit += bet*3
@@ -85,7 +87,7 @@ function playGame() {
 function randomize() {
   let randomImg
   slots.forEach(slot => {
-    randomImg = Math.floor(Math.random()*7)
+    randomImg = Math.floor(Math.random()*5)
     slot.textContent = icons[randomImg]
   })
 }
