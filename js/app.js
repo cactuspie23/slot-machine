@@ -38,6 +38,10 @@ function render() {
   credits.textContent = `Credits : $${credit}`
   betBtn.forEach(btn => btn.disabled = false)
   startBtn.disabled = true
+  if (credit === 0) {
+    messageEl.textContent = 'Sorry you lose!'
+    betBtn.forEach(btn => btn.disabled = true)
+  }
 }
 
 function placeBet(evt) {
@@ -66,11 +70,11 @@ function playGame() {
     credit += jackpot
     messageEl.textContent = 'You win Jackpot!'
   } else if (img1 === img2 && img1 === img3) {
-    credit += bet*4
-    messageEl.textContent = 'You win 4x!!'
-  } else if (img1 === img2 || img1 === img3 || img2 === img3) {
     credit += bet*3
     messageEl.textContent = 'You win 3x!!'
+  } else if (img1 === img2 || img1 === img3 || img2 === img3) {
+    credit += bet*2
+    messageEl.textContent = 'You win 2x!!'
   } else {
     jackpot += bet
     messageEl.textContent = 'Try again! Place your bet'
@@ -87,9 +91,6 @@ function randomize() {
 }
 
 
-// - create function to determine winner/payout
-// - if player doesn't win, bet gets added to jackpot
-// - if player wins first tier, player gets 2X the bet
-// - if player wins second tier, player gets 3X
+
 // - animation for icon display at different intervals
 // - sounds/animation for jackpot
