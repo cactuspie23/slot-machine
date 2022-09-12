@@ -13,6 +13,9 @@ const startBtn = document.getElementById('start-button')
 const resetBtn = document.getElementById('reset-button')
 const currentBet = document.getElementById('current-bet')
 const credits = document.getElementById('credits')
+const img1 = document.getElementById('img1')
+const img2 = document.getElementById('img2')
+const img3 = document.getElementById('img3')
 
 /*----------------------------- Event Listeners -----------------------------*/
 startBtn.addEventListener('click', playGame)
@@ -64,17 +67,14 @@ function placeBet(evt) {
 function playGame() {
   resetBtn.removeAttribute('hidden')
   randomize()
-  const img1 = document.getElementById('img1').textContent
-  const img2 = document.getElementById('img2').textContent
-  const img3 = document.getElementById('img3').textContent
-  if (img1 === icons[4] && img2 === icons[4] && img3 === icons[4]) {
+  if (img1.textContent  === icons[4] && img2.textContent  === icons[4] && img3.textContent  === icons[4]) {
     credit += jackpot
     jackpot = 100
     messageEl.textContent = 'You win Jackpot!'
-  } else if (img1 === img2 && img1 === img3) {
+  } else if (img1.textContent === img2.textContent  && img1.textContent  === img3.textContent ) {
     credit += bet*3
     messageEl.textContent = 'You win 3x!!'
-  } else if (img1 === img2 || img1 === img3 || img2 === img3) {
+  } else if (img1.textContent  === img2.textContent  || img1.textContent  === img3.textContent  || img2.textContent  === img3.textContent ) {
     credit += bet*2
     messageEl.textContent = 'You win 2x!!'
   } else {
@@ -92,7 +92,10 @@ function randomize() {
   })
 }
 
-
+// function spin() {
+//   img1.classList.add('animate__animated', 'animate__slideOutDown', 'animate__infinite')
+// }
 
 // - animation for icon display at different intervals
 // - sounds/animation for jackpot
+// - fix over-betting problem when low on credits
