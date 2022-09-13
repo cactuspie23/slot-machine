@@ -103,5 +103,4 @@ function spin() {
 }
 
 
-// - animation for icon display at different intervals
 // - sounds/animation for jackpot

@@ -23,12 +23,16 @@ body {
 }
 
 h1 {
-  font-size: 60px;
-  margin: 15px;
+  font-family: 'Creepster';
+  font-size: 80px;
+  margin: 20px;
+  padding: 10px;
+  text-shadow: 3px 4px 6px rgba(29, 219, 71, 0.75); 
 }
 
 h2 {
-  font-size: 30px;
+  font-family: 'Reenie Beanie';
+  font-size: 40px;
   margin: 5px;
 }
 
