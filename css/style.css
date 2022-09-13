@@ -19,6 +19,16 @@ body {
   text-align: center;
 }
 
+h1 {
+  font-size: 60px;
+  margin: 15px;
+}
+
+h2 {
+  font-size: 30px;
+  margin: 5px;
+}
+
 section.container {
   display: flex;
   justify-content: center;

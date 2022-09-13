@@ -13,12 +13,9 @@ const startBtn = document.getElementById('start-button')
 const resetBtn = document.getElementById('reset-button')
 const currentBet = document.getElementById('current-bet')
 const credits = document.getElementById('credits')
-const img1 = document.getElementById('img1')
-const img2 = document.getElementById('img2')
-const img3 = document.getElementById('img3')
 
 /*----------------------------- Event Listeners -----------------------------*/
-startBtn.addEventListener('click', playGame)
+startBtn.addEventListener('click', spinTheWheel)
 betBtn.forEach(btn => btn.addEventListener('click', placeBet))
 resetBtn.addEventListener('click', init)
 
@@ -27,7 +24,7 @@ init()
 
 function init() {
   bet = 0
-  credit = 200
+  credit = 100
   jackpot = 100
   messageEl.textContent = 'Place your bet to start the game!'
   resetBtn.setAttribute('hidden', true)
@@ -49,13 +46,16 @@ function render() {
 }
 
 function placeBet(evt) {
-  if (evt.target.id === 'one') {
+  if (evt.target.id === 'one' && credit >= 1) {
     bet = 1
-  } else if (evt.target.id === 'five') {
+  } else if (evt.target.id === 'five' && credit >= 5) {
     bet = 5
-  } else {
+  } else if (evt.target.id === 'ten' && credit >= 10) {
     bet = 10
-  } 
+  } else {
+    messageEl.textContent = `You don't have enough credits`
+    return
+  }
   credit -= bet
   betBtn.forEach(btn => btn.disabled = true)
   startBtn.disabled = false
@@ -64,17 +64,19 @@ function placeBet(evt) {
   credits.textContent = `Credits : $${credit}`
 }
 
-function playGame() {
+function getWinner() {
   resetBtn.removeAttribute('hidden')
-  randomize()
-  if (img1.textContent  === icons[4] && img2.textContent  === icons[4] && img3.textContent  === icons[4]) {
+  const img1 = document.getElementById('img1').textContent
+  const img2 = document.getElementById('img2').textContent
+  const img3 = document.getElementById('img3').textContent
+  if (img1 === icons[4] && img2 === icons[4] && img3 === icons[4]) {
     credit += jackpot
     jackpot = 100
     messageEl.textContent = 'You win Jackpot!'
-  } else if (img1.textContent === img2.textContent  && img1.textContent  === img3.textContent ) {
+  } else if (img1 === img2 && img1  === img3) {
     credit += bet*3
     messageEl.textContent = 'You win 3x!!'
-  } else if (img1.textContent  === img2.textContent  || img1.textContent  === img3.textContent  || img2.textContent  === img3.textContent ) {
+  } else if (img1 === img2 || img1 === img3 || img2 === img3) {
     credit += bet*2
     messageEl.textContent = 'You win 2x!!'
   } else {
@@ -92,10 +94,14 @@ function randomize() {
   })
 }
 
-// function spin() {
-//   img1.classList.add('animate__animated', 'animate__slideOutDown', 'animate__infinite')
-// }
+function spinTheWheel() {
+  let imageChanger = setInterval(randomize, 100)
+  setTimeout(() => {
+    clearInterval(imageChanger)
+    getWinner()
+  }, 3000)
+}
+
 
 // - animation for icon display at different intervals
 // - sounds/animation for jackpot
-// - fix over-betting problem when low on credits
