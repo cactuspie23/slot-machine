@@ -1,5 +1,5 @@
 /*-------------------------------- Constants --------------------------------*/
-const icons = ['☠️', '🕸️', '🎃', '🦇', '💰']
+const icons = ['☠️', '👻', '🎃', '🦇', '💰']
 
 /*---------------------------- Variables (state) ----------------------------*/
 let bet, credit, jackpot
@@ -15,7 +15,7 @@ const currentBet = document.getElementById('current-bet')
 const credits = document.getElementById('credits')
 
 /*----------------------------- Event Listeners -----------------------------*/
-startBtn.addEventListener('click', spinTheWheel)
+startBtn.addEventListener('click', spin)
 betBtn.forEach(btn => btn.addEventListener('click', placeBet))
 resetBtn.addEventListener('click', init)
 
@@ -59,7 +59,7 @@ function placeBet(evt) {
   credit -= bet
   betBtn.forEach(btn => btn.disabled = true)
   startBtn.disabled = false
-  messageEl.textContent = 'Push Start to play!'
+  messageEl.textContent = 'Spin if you dare!'
   currentBet.textContent = `Current Bet : $${bet}`
   credits.textContent = `Credits : $${credit}`
 }
@@ -94,7 +94,7 @@ function randomize() {
   })
 }
 
-function spinTheWheel() {
+function spin() {
   let imageChanger = setInterval(randomize, 100)
   setTimeout(() => {
     clearInterval(imageChanger)
