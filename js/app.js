@@ -96,6 +96,7 @@ function randomize() {
 
 function spin() {
   let imageChanger = setInterval(randomize, 100)
+  startBtn.disabled = true
   setTimeout(() => {
     clearInterval(imageChanger)
     getWinner()
