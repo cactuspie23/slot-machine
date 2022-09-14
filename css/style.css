@@ -34,6 +34,10 @@ h2 {
   margin: 5px;
 }
 
+#jackpot {
+  font-family: 'Creepster';
+}
+
 div {
   text-shadow: 6px 6px 6px rgb(0, 0, 0);
 }
@@ -70,11 +74,17 @@ button {
   background-color: white;
 }
 
-.credits {
+button:hover {
+  box-shadow: 6px 6px 6px black;
+  width: 77px;
+  height: 77px;
+}
+
+.credit-state {
   display: flex;
   justify-content: center;
 }
 
-.credits > h2 {
+.credit-state > h2 {
   margin: 15px;
 }

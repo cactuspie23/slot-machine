@@ -8,7 +8,7 @@ let bet, credit, jackpot
 const messageEl = document.getElementById('message')
 const jackpotEl = document.getElementById('jackpot')
 const slots = document.querySelectorAll('.slots')
-const betBtn = document.querySelectorAll('.place-bet')
+const betBtns = document.querySelectorAll('.place-bet')
 const startBtn = document.getElementById('start-button')
 const resetBtn = document.getElementById('reset-button')
 const currentBet = document.getElementById('current-bet')
@@ -16,7 +16,7 @@ const credits = document.getElementById('credits')
 
 /*----------------------------- Event Listeners -----------------------------*/
 startBtn.addEventListener('click', spin)
-betBtn.forEach(btn => btn.addEventListener('click', placeBet))
+betBtns.forEach(btn => btn.addEventListener('click', placeBet))
 resetBtn.addEventListener('click', init)
 
 /*-------------------------------- Functions --------------------------------*/
@@ -26,7 +26,7 @@ function init() {
   bet = 0
   credit = 100
   jackpot = 100
-  messageEl.textContent = 'Place your bet to start the game!'
+  messageEl.textContent = 'Place your bet!'
   resetBtn.setAttribute('hidden', true)
   slots.forEach(slot => slot.textContent = icons[6]) 
   render()
@@ -37,11 +37,10 @@ function render() {
   jackpotEl.textContent = `Jackpot : $${jackpot}`
   currentBet.textContent = `Current Bet : $${bet}`
   credits.textContent = `Credits : $${credit}`
-  betBtn.forEach(btn => btn.disabled = false)
-  startBtn.disabled = true
+  betBtns.forEach(btn => btn.disabled = false)
   if (credit === 0) {
     messageEl.textContent = 'Sorry you lose!'
-    betBtn.forEach(btn => btn.disabled = true)
+    betBtns.forEach(btn => btn.disabled = true)
   }
 }
 
@@ -57,7 +56,7 @@ function placeBet(evt) {
     return
   }
   credit -= bet
-  betBtn.forEach(btn => btn.disabled = true)
+  betBtns.forEach(btn => btn.disabled = true)
   startBtn.disabled = false
   messageEl.textContent = 'Spin if you dare!'
   currentBet.textContent = `Current Bet : $${bet}`
@@ -75,10 +74,10 @@ function getWinner() {
     messageEl.textContent = 'You win Jackpot!'
   } else if (img1 === img2 && img1  === img3) {
     credit += bet*3
-    messageEl.textContent = 'You win 3x!!'
+    messageEl.textContent = 'You win 3x!'
   } else if (img1 === img2 || img1 === img3 || img2 === img3) {
     credit += bet*2
-    messageEl.textContent = 'You win 2x!!'
+    messageEl.textContent = 'You win 2x!'
   } else {
     jackpot += bet
     messageEl.textContent = 'Try again! Place your bet'
@@ -102,6 +101,3 @@ function spin() {
     getWinner()
   }, 3000)
 }
-
-
-// - sounds/animation for jackpot
