@@ -5,6 +5,7 @@ const intro = new Audio('./assets/sounds/werewolf-intro.mp3')
 const witch = new Audio('./assets/sounds/witch.mp3')
 const laugh = new Audio('./assets/sounds/evil-laugh.wav')
 const lose = new Audio('./assets/sounds/lose.wav')
+const bubble = new Audio('./assets/sounds/bubbling.wav')
 Audio.volume = 0.5
 
 /*---------------------------- Variables (state) ----------------------------*/
@@ -119,6 +120,7 @@ function spin() {
   let imageChangerTwo = setInterval(randomizeTwo, 100)
   let imageChangerThree = setInterval(randomizeThree, 100)
   startBtn.disabled = true
+  bubble.play()
   setTimeout(() => {
     clearInterval(imageChangerOne)
   }, 2500)

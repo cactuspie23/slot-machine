@@ -75,9 +75,8 @@ button {
 }
 
 button:hover {
-  box-shadow: 6px 6px 6px black;
-  width: 77px;
-  height: 77px;
+  box-shadow: 5px 5px 6px black;
+  color: darkgreen;
 }
 
 .credit-state {
