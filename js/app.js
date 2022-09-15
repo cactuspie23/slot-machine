@@ -1,5 +1,7 @@
 /*-------------------------------- Constants --------------------------------*/
 const icons = ['☠️', '👻', '🎃', '🦇', '🪓', '🩸', '💰']
+const impact = new Audio('./assets/sounds/impact.mp3')
+const intro = new Audio('./assets/sounds/werewolf-intro.mp3')
 
 /*---------------------------- Variables (state) ----------------------------*/
 let bet, credit, jackpot
@@ -29,6 +31,7 @@ function init() {
   messageEl.textContent = 'Place your bet!'
   resetBtn.setAttribute('hidden', true)
   slots.forEach(slot => slot.textContent = icons[6]) 
+  intro.play()
   render()
 }
 
@@ -61,6 +64,7 @@ function placeBet(evt) {
   messageEl.textContent = 'Spin if you dare!'
   currentBet.textContent = `Current Bet : $${bet}`
   credits.textContent = `Credits : $${credit}`
+  impact.play()
 }
 
 function getWinner() {
