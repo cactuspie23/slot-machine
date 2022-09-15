@@ -64,7 +64,7 @@ button {
   border-radius: 50%;
   font-size: 25px;
   text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
-  color: rgb(180, 57, 41);
+  color: rgba(29, 219, 95, 0.75);
   font-weight: bold;
   cursor: pointer;
   width: 75px;

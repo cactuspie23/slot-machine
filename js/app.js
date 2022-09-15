@@ -85,19 +85,37 @@ function getWinner() {
   render()
 }
 
-function randomize() {
-  let randomImg
-  slots.forEach(slot => {
-    randomImg = Math.floor(Math.random()*7)
-    slot.textContent = icons[randomImg]
-  })
+function randomizeOne() {
+  let randomImg = Math.floor(Math.random()*7)
+  const img1 = document.getElementById('img1')
+  img1.textContent = icons[randomImg]
+}
+
+function randomizeTwo() {
+  let randomImg = Math.floor(Math.random()*7)
+  const img2 = document.getElementById('img2')
+  img2.textContent = icons[randomImg]
+}
+
+function randomizeThree() {
+  let randomImg = Math.floor(Math.random()*7)
+  const img3 = document.getElementById('img3')
+  img3.textContent = icons[randomImg]
 }
 
 function spin() {
-  let imageChanger = setInterval(randomize, 100)
+  let imageChangerOne = setInterval(randomizeOne, 100)
+  let imageChangerTwo = setInterval(randomizeTwo, 100)
+  let imageChangerThree = setInterval(randomizeThree, 100)
   startBtn.disabled = true
   setTimeout(() => {
-    clearInterval(imageChanger)
+    clearInterval(imageChangerOne)
+  }, 2500)
+  setTimeout(() => {
+    clearInterval(imageChangerTwo)
+  }, 4000)
+  setTimeout(() => {
+    clearInterval(imageChangerThree)
     getWinner()
-  }, 3000)
+  }, 5000)
 }
