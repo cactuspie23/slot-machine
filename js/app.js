@@ -1,9 +1,10 @@
 /*-------------------------------- Constants --------------------------------*/
 const icons = ['☠️', '👻', '🎃', '🦇', '🪓', '🩸', '💰']
-const impact = new Audio('./assets/sounds/impact.mp3')
+const impact = new Audio('./assets/sounds/impact1.mp3')
 const intro = new Audio('./assets/sounds/werewolf-intro.mp3')
 const witch = new Audio('./assets/sounds/witch.mp3')
 const laugh = new Audio('./assets/sounds/evil-laugh.wav')
+const lose = new Audio('./assets/sounds/lose.wav')
 Audio.volume = 0.5
 
 /*---------------------------- Variables (state) ----------------------------*/
@@ -47,6 +48,7 @@ function render() {
   if (credit === 0) {
     messageEl.textContent = 'Sorry you lose!'
     betBtns.forEach(btn => btn.disabled = true)
+    lose.play()
   }
 }
 
