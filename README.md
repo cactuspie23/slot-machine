@@ -5,7 +5,7 @@
 
 Classic slot machine with a horrific twist. Place your bet and spin to test your luck... if you dare! Try to match all three money bags to win the jackpot. Match two icons and win your bet x2, or three icons for x3. When you run out of credits, you lose!
 
-⚠️ <font color='red'>**Warning:** This game may be too scary for some people</font> ⚠️
+<p style='color:red'>⚠️ Warning: This game may be too scary for some people ⚠️</p> 
 
 ## Play the game <a href="https://slotsofterror.netlify.app/">here</a>
 
