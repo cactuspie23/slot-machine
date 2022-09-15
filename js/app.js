@@ -3,6 +3,7 @@ const icons = ['☠️', '👻', '🎃', '🦇', '🪓', '🩸', '💰']
 const impact = new Audio('./assets/sounds/impact.mp3')
 const intro = new Audio('./assets/sounds/werewolf-intro.mp3')
 const witch = new Audio('./assets/sounds/witch.mp3')
+const laugh = new Audio('./assets/sounds/evil-laugh.wav')
 Audio.volume = 0.5
 
 /*---------------------------- Variables (state) ----------------------------*/
@@ -88,6 +89,7 @@ function getWinner() {
   } else {
     jackpot += bet
     messageEl.textContent = 'Try again! Place your bet'
+    laugh.play()
   }
   render()
 }
