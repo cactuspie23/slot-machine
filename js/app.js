@@ -2,6 +2,8 @@
 const icons = ['☠️', '👻', '🎃', '🦇', '🪓', '🩸', '💰']
 const impact = new Audio('./assets/sounds/impact.mp3')
 const intro = new Audio('./assets/sounds/werewolf-intro.mp3')
+const witch = new Audio('./assets/sounds/witch.mp3')
+Audio.volume = 0.5
 
 /*---------------------------- Variables (state) ----------------------------*/
 let bet, credit, jackpot
@@ -82,6 +84,7 @@ function getWinner() {
   } else if (img1 === img2 || img1 === img3 || img2 === img3) {
     credit += bet*2
     messageEl.textContent = 'You win 2x!'
+    witch.play()
   } else {
     jackpot += bet
     messageEl.textContent = 'Try again! Place your bet'

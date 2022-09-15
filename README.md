@@ -29,3 +29,7 @@ Classic slot machine with a horrific twist. Place your bet and spin to test your
 <a href="https://www.freepik.com/free-vector/halloween-background-with-red-blood-splatter-design_18355620.htm#query=blood%20splatter&position=11&from_view=keyword">Image by kjpargeter</a> on Freepik
 
 Clipart from <a href="https://clipartix.com">Clipartix.com</a>
+
+Ghostly Impact from airmedia
+
+Sound effects by TunePocket – Unlimited royalty free music and sound effects for video creators
