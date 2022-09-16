@@ -20,9 +20,10 @@ Classic slot machine with a horrific twist. Place your bet and spin to test your
 
 ## Next Steps :
 
-- [ ] Add animation
+- [x] Add animation
 - [x] Spooky sounds
 - [ ] Jackpot madness
+- [ ] Mobile view
 
 ### Credits
 
