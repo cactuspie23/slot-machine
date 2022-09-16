@@ -46,7 +46,6 @@ section.container {
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  box-shadow: 3px 3px 6px rgb(0, 0, 0);
 }
 
 .slots {
