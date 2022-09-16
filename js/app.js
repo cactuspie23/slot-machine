@@ -7,6 +7,7 @@ const laugh = new Audio('./assets/sounds/evil-laugh.wav')
 const lose = new Audio('./assets/sounds/lose.wav')
 const bubble = new Audio('./assets/sounds/bubbling.wav')
 const organ = new Audio('./assets/sounds/organ.wav')
+const ghost = new Audio('./assets/sounds/ghost.wav')
 
 /*---------------------------- Variables (state) ----------------------------*/
 let bet, credit, jackpot
@@ -37,6 +38,7 @@ function init() {
   resetBtn.setAttribute('hidden', true)
   slots.forEach(slot => slot.textContent = icons[6]) 
   intro.play()
+  intro.volume = 0.5
   render()
 }
 
@@ -50,6 +52,7 @@ function render() {
     messageEl.textContent = 'Sorry you lose!'
     betBtns.forEach(btn => btn.disabled = true)
     lose.play()
+    lose.volume = 0.5
   }
 }
 
@@ -83,17 +86,22 @@ function getWinner() {
     jackpot = 100
     messageEl.textContent = 'You win Jackpot!'
     organ.play()
+    organ.volume = 0.5
   } else if (img1 === img2 && img1  === img3) {
     credit += bet*3
     messageEl.textContent = 'You win 3x!'
+    ghost.play()
+    ghost.volume = 0.5
   } else if (img1 === img2 || img1 === img3 || img2 === img3) {
     credit += bet*2
     messageEl.textContent = 'You win 2x!'
     witch.play()
+    witch.volume = 0.5
   } else {
     jackpot += bet
     messageEl.textContent = 'Try again! Place your bet'
     laugh.play()
+    laugh.volume = 0.5
   }
   render()
 }
@@ -110,6 +118,7 @@ function spin() {
   let imageChangerThree = setInterval(() => randomize('img3'), 100)
   startBtn.disabled = true
   bubble.play()
+  bubble.volume = 0.5
   setTimeout(() => {
     clearInterval(imageChangerOne)
   }, 2500)

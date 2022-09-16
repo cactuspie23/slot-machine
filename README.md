@@ -32,4 +32,4 @@ Classic slot machine with a horrific twist. Place your bet and spin to test your
 Clipart from <a href="https://clipartix.com">Clipartix.com</a>
 
 Sound effects from <a href="https://freesound.org">Freesound.org</a>
-airmedia, jobro, miksmusic, gadziller, ultraaxvii, InspectorJ
+airmedia, jobro, miksmusic, gadziller, ultraaxvii, InspectorJ, sound_system11
