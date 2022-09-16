@@ -97,28 +97,16 @@ function getWinner() {
   render()
 }
 
-function randomizeOne() {
+function randomize(imgId) {
   let randomImg = Math.floor(Math.random()*7)
-  const img1 = document.getElementById('img1')
-  img1.textContent = icons[randomImg]
-}
-
-function randomizeTwo() {
-  let randomImg = Math.floor(Math.random()*7)
-  const img2 = document.getElementById('img2')
-  img2.textContent = icons[randomImg]
-}
-
-function randomizeThree() {
-  let randomImg = Math.floor(Math.random()*7)
-  const img3 = document.getElementById('img3')
-  img3.textContent = icons[randomImg]
+  const img = document.getElementById(imgId)
+  img.textContent = icons[randomImg]
 }
 
 function spin() {
-  let imageChangerOne = setInterval(randomizeOne, 100)
-  let imageChangerTwo = setInterval(randomizeTwo, 100)
-  let imageChangerThree = setInterval(randomizeThree, 100)
+  let imageChangerOne = setInterval(() => randomize('img1'), 100)
+  let imageChangerTwo = setInterval(() => randomize('img2'), 100)
+  let imageChangerThree = setInterval(() => randomize('img3'), 100)
   startBtn.disabled = true
   bubble.play()
   setTimeout(() => {
