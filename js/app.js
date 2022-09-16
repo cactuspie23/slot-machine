@@ -82,6 +82,7 @@ function getWinner() {
     credit += jackpot
     jackpot = 100
     messageEl.textContent = 'You win Jackpot!'
+    organ.play()
   } else if (img1 === img2 && img1  === img3) {
     credit += bet*3
     messageEl.textContent = 'You win 3x!'
