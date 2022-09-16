@@ -6,7 +6,7 @@ const witch = new Audio('./assets/sounds/witch.mp3')
 const laugh = new Audio('./assets/sounds/evil-laugh.wav')
 const lose = new Audio('./assets/sounds/lose.wav')
 const bubble = new Audio('./assets/sounds/bubbling.wav')
-Audio.volume = 0.5
+const organ = new Audio('./assets/sounds/organ.wav')
 
 /*---------------------------- Variables (state) ----------------------------*/
 let bet, credit, jackpot

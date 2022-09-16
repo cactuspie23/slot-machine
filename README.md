@@ -21,7 +21,7 @@ Classic slot machine with a horrific twist. Place your bet and spin to test your
 ## Next Steps :
 
 - [ ] Add animation
-- [ ] Spooky sounds
+- [x] Spooky sounds
 - [ ] Jackpot madness
 
 ### Credits
@@ -30,6 +30,5 @@ Classic slot machine with a horrific twist. Place your bet and spin to test your
 
 Clipart from <a href="https://clipartix.com">Clipartix.com</a>
 
-Ghostly Impact from airmedia
-
-Sound effects by TunePocket – Unlimited royalty free music and sound effects for video creators
+Sound effects from <a href="https://freesound.org">Freesound.org</a>
+airmedia, jobro, miksmusic, gadziller, ultraaxvii, InspectorJ
